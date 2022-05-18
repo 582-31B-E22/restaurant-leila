@@ -1,0 +1,411 @@
+/*
+  STRUCTURE ET STYLES COMMUNS
+*/
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #7f7f7f;
+}
+
+a, a:visited, a:active, a:link {
+  color: inherit;
+  text-decoration: none;
+}
+
+#conteneur {
+  background-color: #fff;
+  box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.5);
+  width: 95%;
+  min-width: 700px;
+  margin: 10px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*
+  ENTETE ET MENU DE NAVIGATION
+*/
+
+#conteneur > header {
+  width: 100%;
+  color: white;
+  background-repeat: no-repeat;
+}
+
+.page-accueil > header {
+  background-image: url(../images/accueil-entete.jpg);
+}
+
+.page-menu > header {
+  background-image: url(../images/menu-entete.jpg);
+}
+
+.page-vins > header {
+  background-image: url(../images/vins-entete.jpg);
+}
+
+.barre-haut {
+  height: 50px;
+  background-color: black;
+  opacity: 0.75;
+  min-width: 360px;
+  text-align: center;
+}
+
+h1.logo {
+  display: inline-block;
+  margin: 5px auto;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.7em;
+  text-align: center;
+}
+
+h1.logo:hover {
+  color: #fce57e;
+}
+
+/* Barre de haut - liens de navigation */
+.barre-haut nav a {
+  margin: 5px;
+  width: 32px;
+  height: 32px;
+}
+
+/* Barre de haut - images/icones de navigation */
+.barre-haut nav a img {
+  width: inherit;
+  height: inherit;
+}
+
+/* Navigation réseaux-sociaux */
+nav.social {
+  width: auto;
+  margin-left: 100px;
+  padding: 8px;
+  float: left;
+}
+
+/* Navigation i18n */
+nav.i18n {
+  width: auto;
+  margin-right: 100px;
+  padding: 4px;
+  float: right;
+}
+
+nav.i18n a {
+  background-color: #666;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 4px;
+  display: inline-block;
+  border-radius: 16px;
+}
+
+nav.i18n a.actif {
+  background-color: white;
+}
+
+nav.i18n a:hover {
+  background-color: #fed531;
+}
+
+.titre-page {
+  clear: both;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.page-accueil .titre-page {
+  margin-top: 20px;
+}
+
+.titre-page h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-weight: bold;
+  font-size: 96px;
+  margin: 0px;
+  padding: 0;
+}
+
+.titre-page h3 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 32px;
+  font-weight: 300;
+  letter-spacing: 0.30em;
+  margin: 0px;
+  padding: 0;
+}
+
+.info-utile {
+  text-align: center;
+  padding: 0;
+}
+
+.info-utile p {
+  margin: 5;
+  font-size: 1.2em;
+}
+
+.info-utile .aujourdui {
+  color: #fed531;
+  font-size: 1.5em;
+  /*font-weight: bold;*/
+}
+
+.info-utile .telephone {
+  font-weight: bold;
+}
+
+/* Navigation principale */
+nav.nav-principale {
+  margin: 40px auto 20px auto;
+  text-align: center;
+}
+
+nav.nav-principale a {
+  display: inline-block;
+  padding: 20px;
+}
+
+nav.nav-principale a svg:hover path:not(.coupe), 
+nav.nav-principale a.actif svg path:not(.coupe) {
+  fill: #fce57e;
+}
+
+nav.nav-principale a svg:hover path, 
+nav.nav-principale a svg:hover line, 
+nav.nav-principale a.actif svg path,
+nav.nav-principale a.actif svg line {
+  stroke: #fce57e;
+}
+
+/*
+  CONTENU PRINCIPAL
+*/
+
+.contenu-principal {
+  background-color: white;
+  color: #444444;
+  margin: 0 70px;
+  padding: 30px;
+}
+
+.contenu-principal h2 {
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.7em;
+  margin: 0px;
+}
+
+.contenu-principal p {
+  font-size: 1.2em;
+}
+
+.contenu-principal p img {
+  float: left;
+  margin: 5px 15px 10px 0;
+}
+
+/*
+  MENU/LISTE DES VINS
+*/
+
+.citation {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; 
+  clear: both;
+  overflow: hidden;
+  padding: 15px;
+  margin-bottom: 40px;
+  margin-top: -10px;
+}
+
+.citation img {
+  float: left;
+}
+
+.citation blockquote {
+  font-size: 1.5em;
+  font-style: italic;
+  color: #777;
+  margin-left: 200px;
+  padding-left: 20px;
+  border-left: 1px solid #ccc;
+}
+
+blockquote cite {
+  color: #aaa;
+  font-size: 0.8em;
+  font-style: normal;
+  display: block;
+  margin-top: 10px;
+}
+
+.frm-recherche {
+  text-align: center;
+  padding: 25px;
+}
+
+.frm-recherche label {
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.frm-recherche input {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-weight: normal;
+  margin-left: 20px;
+}
+
+.carte section ul {
+  padding: 0px;
+  overflow-x: hidden;
+  list-style: none;
+}
+
+.carte section ul li {
+  padding-bottom: 15px;
+}
+
+.carte section ul li:after {
+  float: left;
+  width: 0;
+  white-space: nowrap;
+ content: ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+}
+.carte section ul span:first-child {
+  padding-right: 0.33em;
+  background: white;
+}
+.carte section ul span + span {
+  float: right;
+  padding-left: 0.33em;
+  background: white;
+  position: relative;
+  z-index: 1;
+}
+
+.carte section ul li span i {
+  font-size: 0.95em;
+  font-weight: normal;
+  color: #999;
+}
+
+.carte section ul li span.prix {
+  font-weight: bold;
+}
+
+.carte section ul li .vin-provenance {
+  color:#666;
+  font-size: 0.95em;
+  font-weight: normal;
+  padding-left: 20px;
+  padding-right: 5px;
+}
+
+.carte section ul li .article-menu-portion {
+  color:#666;
+  font-size: 0.95em;
+  font-weight: normal;
+  padding-right: 5px;
+}
+
+/*
+  PIED DE PAGE
+*/
+
+#conteneur > footer {
+  background-color: #555;
+  color: #bfbfbf;
+  margin: 0;
+  padding: 30px 100px;
+}
+
+#conteneur > footer h2 {
+  text-align: left;
+  font-family: 'Roboto Slab', serif;
+  font-size: 1.7em;
+  margin: 0px;
+}
+
+#conteneur > footer p {
+  font-size: 1.2em;
+}
+
+#conteneur > footer p img {
+  vertical-align: middle;
+}
+
+.droits {
+  display: none;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  margin-top: 0;
+  font-family: 'Roboto Slab', serif;
+  font-style: italic;
+  font-size: 0.9em;
+  color: #eee;
+  text-align: center;
+}
+
+/*
+  STYLES ADAPTIFS (RESPONSIVE)
+  Pour les besoins de ce travail pratique, nous ne ciblons que les écrans de 
+  résolution supérieure à 750px.
+*/
+
+/* Tablettes ----------- */
+@media only screen and (min-width : 750px) and (max-width : 1024px) {
+  #conteneur {
+    width: 740px;
+    margin: 10px auto;
+  }
+}
+
+/* Ordinateurs portables ----------- */
+@media only screen and (min-width : 1025px) and (max-width : 1260px) {
+  #conteneur {
+    width: 1024px;
+    margin: 20px auto;
+  }
+}
+
+/* Ordinateurs de bureau ----------- */
+@media only screen and (min-width : 1261px) {
+  #conteneur {
+    width: 1220px;
+    margin: 30px auto;
+  }
+}
+
+/* Astuces diverses */
+/* Pour la propriété box-sizing, voir : http://www.paulirish.com/2012/box-sizing-border-box-ftw */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+/* Voir : http://css-tricks.com/snippets/css/clear-fix/ */
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Règles de styles à précédence élevée */
+.absent {
+  display: none !important;
+}
+
+.centre {
+  text-align: center;
+}
+
+.gras {
+  font-weight: bold;
+}
