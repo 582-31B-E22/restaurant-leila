@@ -1,33 +1,6 @@
-<html>
-<head>
-  <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative:700,900|Roboto+Slab:300,700|Roboto:700,400' rel='stylesheet' type='text/css'>
-  <meta charset="UTF-8">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Menu | Restaurant Leila</title>
-  <meta name="description" content="Menu du restaurant Leila à Montréal. Un menu eclectique et raffiné, combinant créativité et tradition. Produits locaux et spécialités du terroir québécois. ">
-  <link rel="stylesheet" href="css/ext/normalize.css">
-  <link rel="stylesheet" href="css/leila.css">
-</head>
-<body>
-  <div id="conteneur" class="page-menu">
-    <header>
-      <div class="barre-haut">
-        <nav class="social">
-          <a href="http://www.facebook.com" target="lien-externe">
-            <img alt="Facebook" src="images/iu/nav-icone-facebook.svg">
-          </a>
-          <a href="http://www.twitter.com" target="lien-externe">
-            <img alt="Twitter" src="images/iu/nav-icone-twitter.svg">
-          </a>
-        </nav>
-        <h1 class="logo">
-          <a href="index.html">LEILA</a>
-        </h1>
-        <nav class="i18n">
-          <a href="#" class="actif" title="Français">fr</a>
-          <a href="#" title="English">en</a>
-        </nav>
-      </div>
+<?php
+  include('inclusions/entete.inc.php');
+?>
       <div class="titre-page">
         <h1>MENU</h1>
       </div>
@@ -131,25 +104,6 @@
         </section>
       </div>
     </div>
-    <footer>
-      <h2>Info pratique</h2>
-      <p>Cuisine ouverte de 11 h à 22 h.<br>Fermé le lundi.</p>
-      <p>Pour réservation : 
-        <span class="gras">(514) 958-2580</span>
-      </p>
-      <p class="adresse">
-        <a href="https://goo.gl/maps/9pTkr" target="lien-externe" title="Cliquez ici pour localiser le restaurant sur Google Maps">
-          <img src="images/iu/nav-icone-google-maps.png" alt="Carte">
-        </a>
-        275 rue Notre-Dame Est, Montréal, Québec
-      </p>
-    </footer>
-  </div>
-  <!-- Droits d'utilisation et de reproduction réservés -->
-  <p class="droits">
-    &copy;2018
-    <br>Toute reproduction interdite excepté dans le cadre académique des cours 
-    <br>au département de Techniques d'intégration multimédia au Collège de Maisonneuve
-  </p>
-</body>
-</html>
+<?php
+  include('inclusions/pied2page.inc.php');
+?>

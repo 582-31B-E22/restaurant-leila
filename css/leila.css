@@ -30,6 +30,7 @@ a, a:visited, a:active, a:link {
   width: 100%;
   color: white;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .page-accueil > header {
