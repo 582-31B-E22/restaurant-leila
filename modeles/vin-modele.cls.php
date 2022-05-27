@@ -1,5 +1,5 @@
 <?php
-class PlatModele {
+class VinModele {
     // Connexion à la BD
 
     // Propriétés de la classe
@@ -19,7 +19,7 @@ class PlatModele {
      * Cherche tous les plats
      * 
      * @return {object[]} Tableau d'objets standards PHP contenant les 
-     * enregistrements des plats 
+     * enregistrements des vins 
      */
     public function tout() {
         // Implémentation de la méthode

@@ -8,6 +8,10 @@
   // Instancier la classe PlatModele
   $platModele = new PlatModele();
 
+  // Chercher tous les plats de la BD
+  $menu = $platModele->tout();
+  // print_r($menu);
+
   include('inclusions/entete.inc.php');
 ?>
       <div class="titre-page">
@@ -34,17 +38,35 @@
         </blockquote>
       </div>
       <div class="carte">
+        <!-- Une SECTION par catégorie de plats -->
+        <?php foreach ($menu as $section => $plats) : ?>
         <section>
-          <h2>Entrées</h2>
+          <h2><?= $section ?></h2>
           <ul>
             
+            <!-- Un LI par plat-->
+            <?php foreach($plats as $plat) : ?>
             <li>
-              <span>Foie gras de canard poêlé aux coings<br><i>gâteau et infusion de coing à la verveine</i></span>
-              <span class="prix"><i class="article-menu-portion">(pour 2 personnes)</i>34</span>
+              <span>
+                <?= $plat->pla_nom ?>
+                <?php if($plat->pla_detail !== '') : ?>
+                  <br><i><?= $plat->pla_detail ?></i>
+                <?php endif; ?>
+              </span>
+              <span class="prix">
+                <?php if($plat->pla_portion > 1) : ?>
+                  <i class="article-menu-portion">(pour <?= $plat->pla_portion ?> personnes)</i>
+                <?php endif; ?>
+
+                <?= $plat->pla_prix ?>
+              </span>
             </li>
-            
+            <?php endforeach; ?>
+
           </ul>
         </section>
+        <?php endforeach; ?>
+        
       </div>
     </div>
 <?php
