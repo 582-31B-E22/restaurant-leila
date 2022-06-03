@@ -3,6 +3,7 @@
   // Étape 1 : inclure la config de la bd
   include('config/bd.cfg.php');
   // Logique pour intégrer la BD
+  include('modeles/acces-bd.cls.php');
   include('modeles/plat-modele.cls.php');
 
   // Instancier la classe PlatModele
@@ -10,7 +11,7 @@
 
   // Chercher tous les plats de la BD
   $menu = $platModele->tout();
-  // print_r($menu);
+  //print_r($menu);
 
   include('inclusions/entete.inc.php');
 ?>
