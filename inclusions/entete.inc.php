@@ -1,3 +1,23 @@
+<?php
+  // Étape 1 : inclure la config de la bd
+  include('config/bd.cfg.php');
+  // Logique pour intégrer la BD
+  // Autochargement des fichiers de classes
+  spl_autoload_register(function($classe) {
+    $fichier = preg_replace("//", "", $classe).".cls.php";
+    if(file_exists($fichier)) {
+      include($fichier);
+    }
+    else {
+      exit("Problème majeur....");
+    }
+  });  
+  
+  // include('modeles/acces-bd.cls.php');
+  // include('modeles/plat-modele.cls.php');
+  // include('modeles/vin-modele.cls.php');
+  
+?>
 <!DOCTYPE html>
 <html>
 <head>

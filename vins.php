@@ -1,19 +1,13 @@
 <?php
-// Intégrer les données MySQL.
-// Étape 1 : inclure la config de la bd
-include('config/bd.cfg.php');
-// Logique pour intégrer la BD
-include('modeles/acces-bd.cls.php');
-include('modeles/vin-modele.cls.php');
+include('inclusions/entete.inc.php');
 
+// Intégrer les données MySQL.
 // Instancier la classe VinModele
 $vinModele = new VinModele();
 
 // Chercher tous les vins de la BD
 $carteDesVins = $vinModele->tout();
-//print_r($carteDesVins);
 
-include('inclusions/entete.inc.php');
 ?>
 <div class="titre-page">
   <h1>VINS</h1>

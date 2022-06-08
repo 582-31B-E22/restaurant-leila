@@ -25,35 +25,39 @@ class AccesBd
      * @param  array $params Tableau des paramètres utilisés dans la requête SQL
      * @return void
      */
-    protected function soumettre($sql, $params) 
+    private function soumettre($sql, $params) 
     {
         $this->requete = $this->pdo->prepare($sql);
         $this->requete->execute($params);
     }
 
+        
+    /**
+     * Obtenir un jeu d'enregistrement de la BD
+     *
+     * @param  string $sql Requête SQL
+     * @param  array $params Paramètres à passer à la requête paramétrées PDO
+     * @return array Tableau contenant les enregistrements
+     */
     protected function lire($sql, $params = [])
     {
         $this->soumettre($sql, $params);
-        $enregistrements = [];
-        while($enreg = $this->requete->fetch()) {
-            $enregistrements[$enreg->cat_nom][] = $enreg;
-        }
-        return $enregistrements;
+        return $this->requete->fetchAll(PDO::FETCH_GROUP);
     }
     
-    public function creer($sql, $params) 
+    protected function creer($sql, $params) 
     {
         $this->soumettre($sql, $params);
         return $this->pdo->lastInsertId();
     }
 
-    public function modifier($sql, $params)
+    protected function modifier($sql, $params)
     {
         $this->soumettre($sql, $params);
         return $this->requete->rowCount();
     }
 
-    public function supprimer()
+    protected function supprimer()
     {
 
     }

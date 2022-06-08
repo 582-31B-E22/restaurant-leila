@@ -1,19 +1,12 @@
 <?php
-  // Intégrer les données MySQL.
-  // Étape 1 : inclure la config de la bd
-  include('config/bd.cfg.php');
-  // Logique pour intégrer la BD
-  include('modeles/acces-bd.cls.php');
-  include('modeles/plat-modele.cls.php');
+  include('inclusions/entete.inc.php');
 
+  // Intégrer les données MySQL.  
   // Instancier la classe PlatModele
   $platModele = new PlatModele();
 
   // Chercher tous les plats de la BD
-  $menu = $platModele->tout();
-  //print_r($menu);
-
-  include('inclusions/entete.inc.php');
+  $menu = $platModele->tout();  
 ?>
       <div class="titre-page">
         <h1>MENU</h1>
