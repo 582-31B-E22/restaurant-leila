@@ -16,7 +16,6 @@ class AccesBd
     }
 
     // Méthodes de la classe (implémentation de toutes les opérations CRUD)
-    
         
     /**
      * Soumet une requête paramétrée.

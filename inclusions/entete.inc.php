@@ -3,19 +3,18 @@
   include('config/bd.cfg.php');
   // Logique pour intégrer la BD
   // Autochargement des fichiers de classes
-  spl_autoload_register(function($classe) {
-    $fichier = preg_replace("//", "", $classe).".cls.php";
-    if(file_exists($fichier)) {
-      include($fichier);
+  spl_autoload_register(function($nomClasse) {
+    $nomFichier = "$nomClasse.cls.php";
+    if(file_exists("modeles/$nomFichier")) {
+      include("modeles/$nomFichier");
+    }
+    else if(file_exists("controleurs/$nomFichier")) {
+      include("controleurs/$nomFichier");
     }
     else {
       exit("Problème majeur....");
     }
-  });  
-  
-  // include('modeles/acces-bd.cls.php');
-  // include('modeles/plat-modele.cls.php');
-  // include('modeles/vin-modele.cls.php');
+  });
   
 ?>
 <!DOCTYPE html>
