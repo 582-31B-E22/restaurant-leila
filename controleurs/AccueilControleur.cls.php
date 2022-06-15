@@ -1,4 +1,5 @@
 <?php
-class AccueilControleur {
+class AccueilControleur extends Controleur
+{
     
 }

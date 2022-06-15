@@ -1,4 +1,5 @@
 <?php
-class VinControleur {
+class VinControleur extends Controleur
+{
     
 }

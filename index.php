@@ -39,7 +39,7 @@ class Routeur
   public function invoquerRoute() {
     $module = "accueil"; // Autres possibilités : plat, vin, etc.
     $action = "index";
-    $param = "";
+    $params = "";
     $routeTableau = explode('/', $this->route);
     // Exemples : ['plat', 'supprimer', '17'] (ou ['plat', 'tout'] ou ['vin'])
     
@@ -49,7 +49,7 @@ class Routeur
       if(count($routeTableau) > 0 && trim($routeTableau[0]) != '') {
         // $action = 'supprimer' $routeTableau = ['17']
         $action = array_shift($routeTableau);
-        $param = $routeTableau;
+        $params = $routeTableau;
       }
     }
 
@@ -63,10 +63,10 @@ class Routeur
         $action='index';
       }
       $controleur = new $nomControleur($nomModele, $module, $action);
-      $controleur->$action($param);
+      $controleur->$action($params);
     }
     else {
-      $controleur = new AccueilControleur();
+      $controleur = new AccueilControleur('', 'accueil', 'index');
     }
   }
 }
