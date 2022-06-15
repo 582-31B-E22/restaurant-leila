@@ -30,6 +30,9 @@ class Routeur
       else if(file_exists("controleurs/$nomFichier")) {
         include("controleurs/$nomFichier");
       }
+      else if(file_exists("gabarits/$nomFichier")) {
+        include("gabarits/$nomFichier");
+      }
       else {
         exit("Problème majeur....");
       }

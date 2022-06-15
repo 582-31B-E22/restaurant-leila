@@ -6,7 +6,7 @@
       </p>
       <p class="adresse">
         <a href="https://goo.gl/maps/9pTkr" target="lien-externe" title="Cliquez ici pour localiser le restaurant sur Google Maps">
-          <img src="images/iu/nav-icone-google-maps.png" alt="Carte">
+          <img src="ressources/images/iu/nav-icone-google-maps.png" alt="Carte">
         </a>
         275 rue Notre-Dame Est, Montréal, Québec
       </p>

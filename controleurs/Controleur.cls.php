@@ -11,4 +11,9 @@ class Controleur
         }
         $this->gabarit = new HtmlGabarit($module, $action);
     }
+
+    function __destruct()
+    {
+       $this->gabarit->genererVue(); 
+    }
 }

@@ -6,8 +6,8 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Accueil | Restaurant Leila</title>
   <meta name="description" content="Restaurant Leila - Montréal">
-  <link rel="stylesheet" href="css/ext/normalize.css">
-  <link rel="stylesheet" href="css/leila.css">
+  <link rel="stylesheet" href="ressources/css/ext/normalize.css">
+  <link rel="stylesheet" href="ressources/css/leila.css">
 </head>
 <body>
   <div id="conteneur" class="page-accueil">
@@ -15,10 +15,10 @@
       <div class="barre-haut">
         <nav class="social">
           <a href="http://www.facebook.com" target="lien-externe">
-            <img alt="Facebook" src="images/iu/nav-icone-facebook.svg">
+            <img alt="Facebook" src="ressources/images/iu/nav-icone-facebook.svg">
           </a>
           <a href="http://www.twitter.com" target="lien-externe">
-            <img alt="Twitter" src="images/iu/nav-icone-twitter.svg">
+            <img alt="Twitter" src="ressources/images/iu/nav-icone-twitter.svg">
           </a>
         </nav>
         <nav class="i18n">

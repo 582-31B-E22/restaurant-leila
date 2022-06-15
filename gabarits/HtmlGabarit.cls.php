@@ -11,8 +11,14 @@ class HtmlGabarit
         $this->action = $action;  
     }
 
+    public function affecter($nom, $valeur)
+    {
+        $this->variables[$nom] = $valeur;
+    }
+
     public function genererVue() 
     {
+        extract($this->variables);
         include("vues/entete.inc.php");
         include("vues/$this->module.$this->action.php");
         include("vues/pied2page.inc.php");

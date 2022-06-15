@@ -1,26 +1,15 @@
-<?php
-include('inclusions/entete.inc.php');
-
-// Intégrer les données MySQL.
-// Instancier la classe VinModele
-$vinModele = new VinModele();
-
-// Chercher tous les vins de la BD
-$carteDesVins = $vinModele->tout();
-
-?>
 <div class="titre-page">
   <h1>VINS</h1>
 </div>
 <nav class="nav-principale">
-  <a href="menu.php" title="Les menus">
+  <a href="index.php?route=plat" title="Les menus">
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="130px" height="130px" viewBox="0 0 130 130" enable-background="new 0 0 130 130" xml:space="preserve">
       <g>
         <path class="icone" fill="#bbb" d="M65,1C29.7,1,1,29.7,1,65s28.7,64,64,64c35.3,0,64-28.7,64-64S100.3,1,65,1z M65,126C31.4,126,4,98.6,4,65 C4,31.4,31.4,4,65,4c33.6,0,61,27.4,61,61C126,98.6,98.6,126,65,126z M33.1,99.1h63v-68h-63V99.1z M36.1,34.1h57v62h-57V34.1z  M66.1,57.1h-18c-0.8,0-1.5,0.7-1.5,1.5s0.7,1.5,1.5,1.5h18c0.8,0,1.5-0.7,1.5-1.5S67,57.1,66.1,57.1z M66.1,81.1h-18 c-0.8,0-1.5,0.7-1.5,1.5s0.7,1.5,1.5,1.5h18c0.8,0,1.5-0.7,1.5-1.5S67,81.1,66.1,81.1z M66.1,69.1h-18c-0.8,0-1.5,0.7-1.5,1.5 s0.7,1.5,1.5,1.5h18c0.8,0,1.5-0.7,1.5-1.5S67,69.1,66.1,69.1z M66.1,45.1h-18c-0.8,0-1.5,0.7-1.5,1.5s0.7,1.5,1.5,1.5h18 c0.8,0,1.5-0.7,1.5-1.5S67,45.1,66.1,45.1z M81.1,57.1h-5c-0.8,0-1.5,0.7-1.5,1.5s0.7,1.5,1.5,1.5h5c0.8,0,1.5-0.7,1.5-1.5 S82,57.1,81.1,57.1z M81.1,81.1h-5c-0.8,0-1.5,0.7-1.5,1.5s0.7,1.5,1.5,1.5h5c0.8,0,1.5-0.7,1.5-1.5S82,81.1,81.1,81.1z M81.1,45.1 h-5c-0.8,0-1.5,0.7-1.5,1.5s0.7,1.5,1.5,1.5h5c0.8,0,1.5-0.7,1.5-1.5S82,45.1,81.1,45.1z M81.1,69.1h-5c-0.8,0-1.5,0.7-1.5,1.5 s0.7,1.5,1.5,1.5h5c0.8,0,1.5-0.7,1.5-1.5S82,69.1,81.1,69.1z" />
       </g>
     </svg>
   </a>
-  <a href="vins.php" class="actif" title="Carte des vins">
+  <a href="index.php?route=vin" class="actif" title="Carte des vins">
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="128px" height="128px" viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">
       <defs></defs>
       <g>
@@ -46,7 +35,7 @@ $carteDesVins = $vinModele->tout();
 </header>
 <div class="contenu-principal">
   <div class="citation">
-    <img src="images/vins-citation.png" alt="">
+    <img src="ressources/images/vins-citation.png" alt="">
     <blockquote>
       Le vin est la partie intellectuelle d’un repas, les viandes et les légumes n’en sont que la partie matérielle.
       <cite>- Alexandre Dumas</cite>
@@ -81,6 +70,3 @@ $carteDesVins = $vinModele->tout();
 
   </div>
 </div>
-<?php
-include('inclusions/pied2page.inc.php');
-?>
