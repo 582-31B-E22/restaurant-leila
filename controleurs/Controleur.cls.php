@@ -10,6 +10,7 @@ class Controleur
             $this->modele = new $modele();
         }
         $this->gabarit = new HtmlGabarit($module, $action);
+        $this->gabarit->affecter('page', $module);
     }
 
     function __destruct()

@@ -16,6 +16,10 @@ class HtmlGabarit
         $this->variables[$nom] = $valeur;
     }
 
+    public function affecterActionParDefaut($nomAction) {
+        $this->action = $nomAction;
+    }
+ 
     public function genererVue() 
     {
         extract($this->variables);

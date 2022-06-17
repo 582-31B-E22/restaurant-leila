@@ -3,6 +3,7 @@ class VinControleur extends Controleur
 {
     public function index($params) 
     {
+        $this->gabarit->affecterActionParDefaut('tout');
         $this->tout($params);
     }
 

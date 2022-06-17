@@ -22,6 +22,9 @@ class Routeur
   {
     $this->route = $r;
     // Autochargement des fichiers de classes
+
+    // Contextes dans lequel cette fonction de rappel sera invoquée : 
+    // Exemples : PlatControleur::nbPlat, $vins = new VinControleur(), class_exists('AccueilControleur')
     spl_autoload_register(function($nomClasse) {
       $nomFichier = "$nomClasse.cls.php";
       if(file_exists("modeles/$nomFichier")) {
@@ -33,13 +36,18 @@ class Routeur
       else if(file_exists("gabarits/$nomFichier")) {
         include("gabarits/$nomFichier");
       }
+      // Inutile
+      /*
       else {
         exit("Problème majeur....");
       }
+      */
     });
   }
   
   public function invoquerRoute() {
+    // Inutile et pas pratique
+    //$tabModules = ['accueil', 'plat', 'vin'];
     $module = "accueil"; // Autres possibilités : plat, vin, etc.
     $action = "index";
     $params = "";
@@ -49,6 +57,10 @@ class Routeur
     if(count($routeTableau) > 0 && trim($routeTableau[0]) != '') {
       // $module = 'plat' et $routeTableau = ['supprimer', '17']
       $module = array_shift($routeTableau);
+      // Inutile
+      // if(!in_array($module, $tabModules)) {
+      //   $module = 'accueil';
+      // }
       if(count($routeTableau) > 0 && trim($routeTableau[0]) != '') {
         // $action = 'supprimer' $routeTableau = ['17']
         $action = array_shift($routeTableau);
@@ -62,7 +74,7 @@ class Routeur
     $nomModele = ucfirst($module).'Modele'; // Exemple : VinModele
 
     if(class_exists($nomControleur)) {
-      if(!is_callable(array($nomControleur, $action))) {
+      if(!method_exists($nomControleur, $action)) {
         $action='index';
       }
       $controleur = new $nomControleur($nomModele, $module, $action);

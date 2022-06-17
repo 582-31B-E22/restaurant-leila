@@ -21,6 +21,12 @@
             <img alt="Twitter" src="ressources/images/iu/nav-icone-twitter.svg">
           </a>
         </nav>
+        <?php if($page !== 'accueil') : ?>
+        <h1 class="logo">
+          <a href="index.php">LEILA</a>
+        </h1>
+        <?php endif; ?>
+        
         <nav class="i18n">
           <a href="#" class="actif" title="Français">fr</a>
           <a href="#" title="English">en</a>
