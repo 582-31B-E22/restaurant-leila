@@ -36,12 +36,17 @@ class AccesBd
      *
      * @param  string $sql Requête SQL
      * @param  array $params Paramètres à passer à la requête paramétrées PDO
+     * @param  boolean $groupe true si on veut groupé le jeu d'enregistrements 
+     *                 dans le tableau PHP retourné ; défaut = true. 
      * @return array Tableau contenant les enregistrements
      */
-    protected function lire($sql, $params = [])
+    protected function lire($sql, $groupe=true, $params = [])
     {
         $this->soumettre($sql, $params);
-        return $this->requete->fetchAll(PDO::FETCH_GROUP);
+        if($groupe) {
+            return $this->requete->fetchAll(PDO::FETCH_GROUP);
+        }
+        return $this->requete->fetchAll();
     }
     
     protected function creer($sql, $params) 

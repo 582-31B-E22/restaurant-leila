@@ -22,7 +22,7 @@ class HtmlGabarit
  
     public function genererVue() 
     {
-        extract($this->variables);
+        extract($this->variables);  // Voir la documentation 
         include("vues/entete.inc.php");
         include("vues/$this->module.$this->action.php");
         include("vues/pied2page.inc.php");

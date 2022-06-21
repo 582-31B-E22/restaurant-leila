@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="ressources/css/leila.css">
 </head>
 <body>
-  <div id="conteneur" class="page-accueil">
+  <div id="conteneur" class="page-<?= $page; ?>">
     <header>
       <div class="barre-haut">
         <nav class="social">

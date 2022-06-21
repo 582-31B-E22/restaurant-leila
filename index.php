@@ -81,7 +81,7 @@ class Routeur
       $controleur->$action($params);
     }
     else {
-      $controleur = new AccueilControleur('', 'accueil', 'index');
+      $controleur = new Controleur('', 'accueil', 'index');
     }
   }
 }

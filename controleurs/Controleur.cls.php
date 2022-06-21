@@ -17,4 +17,9 @@ class Controleur
     {
        $this->gabarit->genererVue(); 
     }
+
+    public function index($params) 
+    {
+
+    }
 }
