@@ -1,0 +1,40 @@
+### Réécriture d'URLs avec Mod_Rewrite
+
+##### Étape 1 ####
+# On demande à Apache d'activer la réécriture des URLs
+RewriteEngine On
+###############################################################################
+
+##### Étape 2 ####
+# On ajoute des conditions qui vont limiter à quels dossiers/fichiers on veut 
+# appliquer la réécriture d'URLs qui suivra
+
+# a) Dans cette première condition, on dit : "en autant que l'URL ne commence 
+# pas par /ressources/" (Ça préviendra la réécriture des URLs pour les requêtes 
+# comme http://leila.localhost/ressources/css/styles.css)
+RewriteCond %{REQUEST_URI} !^/ressources/
+
+# b) Dans cette deuxième condition, on dit : en autant que le chemin requis ne 
+# désigne un fichier existant sur le serveur (Ça préviendra la réécriture des 
+# URLs pour les requêtes comme http://leila.localhost/test-qqchose.php)
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# c) Dans cette dernière condition, on dit : en autant que le chemin requis ne 
+# désigne un dossier existant sur le serveur (Ça préviendra la réécriture des 
+# URLs pour les requêtes comme http://leila.localhost/admin/)
+RewriteCond %{REQUEST_FILENAME} !-d
+################################################################################
+
+##### Étape 3 ####
+# Et ENFIN, c'est dans cette directive que l'on fait la réécriture de l'URL : 
+# Ici on dit à Apache de rerouter tout chemin (path : la partie d'une URL après 
+# le nom du serveur) vers index.php?route=chemin
+# Pour le moment je ne vais pas vous expliquer l'option (flag) [QSA] : si vous 
+# êtes trop curieux, consultez la documentation officielle à l'adresse suivante: 
+# https://httpd.apache.org/docs/current/rewrite/flags.html
+RewriteRule ^(.*)$ index.php?route=$1 [QSA]
+################################################################################
+
+
+### Remarquez qu'on peut ajouter toute sorte d'autres configurations du serveur
+### Web dans ce même fichier (on en verra en classe)

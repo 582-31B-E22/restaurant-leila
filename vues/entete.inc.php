@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <base href="<?= BASE_SERVEUR; ?>">
   <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative:700,900|Roboto+Slab:300,700|Roboto:700,400' rel='stylesheet' type='text/css'>
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
@@ -23,7 +24,7 @@
         </nav>
         <?php if($page !== 'accueil') : ?>
         <h1 class="logo">
-          <a href="index.php">LEILA</a>
+          <a href="accueil">LEILA</a>
         </h1>
         <?php endif; ?>
         
