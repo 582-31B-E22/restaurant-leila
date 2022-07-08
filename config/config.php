@@ -1,6 +1,6 @@
 <?php
 // URL de base du serveur
-const BASE_SERVEUR = 'http://localhost:9000/leila/';
+const BASE_SERVEUR = 'http://leila.localhost:9000/';
 
 // Config de la BD
 const BD_HOTE = 'localhost';
