@@ -1,4 +1,7 @@
 <?php
+// Gérer l'autochargement des classes des librairies externes
+include('vendor/autoload.php');
+
 // Pilote de l'application (ou site Web)
 
 // Inclure les fichiers de config

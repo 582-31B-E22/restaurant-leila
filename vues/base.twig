@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <base href="<?= BASE_SERVEUR; ?>">
+  <base href="{{ constant('BASE_SERVEUR') }}">
   <link href='http://fonts.googleapis.com/css?family=Cinzel+Decorative:700,900|Roboto+Slab:300,700|Roboto:700,400' rel='stylesheet' type='text/css'>
   <meta charset="UTF-8">
   <meta name="robots" content="noindex, nofollow">
@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="ressources/css/leila.css">
 </head>
 <body>
-  <div id="conteneur" class="page-<?= $page; ?>">
+  <div id="conteneur" class="page-{{page}}">
     <header>
       <div class="barre-haut">
         <nav class="social">
@@ -22,14 +22,40 @@
             <img alt="Twitter" src="ressources/images/iu/nav-icone-twitter.svg">
           </a>
         </nav>
-        <?php if($page !== 'accueil') : ?>
+        {% if page != 'accueil' %}
         <h1 class="logo">
           <a href="accueil">LEILA</a>
         </h1>
-        <?php endif; ?>
-        
+        {% endif %}
         <nav class="i18n">
           <a href="#" class="actif" title="Français">fr</a>
           <a href="#" title="English">en</a>
         </nav>
       </div>
+    
+      {% block main %}
+        
+      {% endblock main %}
+
+      <footer>
+      <h2>Info pratique</h2>
+      <p>Cuisine ouverte de 11 h à 22 h.<br>Fermé le lundi.</p>
+      <p>Pour réservation : 
+        <span class="gras">(514) 958-2580</span>
+      </p>
+      <p class="adresse">
+        <a href="https://goo.gl/maps/9pTkr" target="lien-externe" title="Cliquez ici pour localiser le restaurant sur Google Maps">
+          <img src="ressources/images/iu/nav-icone-google-maps.png" alt="Carte">
+        </a>
+        275 rue Notre-Dame Est, Montréal, Québec
+      </p>
+    </footer>
+  </div>
+  <!-- Droits d'utilisation et de reproduction réservés -->
+  <p class="droits">
+    &copy;2018
+    <br>Toute reproduction interdite excepté dans le cadre académique des cours 
+    <br>au département de Techniques d'intégration multimédia au Collège de Maisonneuve
+  </p>
+</body>
+</html>
