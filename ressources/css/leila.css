@@ -174,6 +174,16 @@ nav.nav-principale a {
   padding: 20px;
 }
 
+.page-accueil nav.nav-principale a svg path:not(.coupe), 
+.page-accueil nav.nav-principale a svg path:not(.coupe) {
+  fill: #ffffff;
+}
+
+.page-accueil nav.nav-principale a svg path,
+.page-accueil nav.nav-principale a svg line {
+  stroke: #ffffff;
+}
+
 nav.nav-principale a svg:hover path:not(.coupe), 
 nav.nav-principale a.actif svg path:not(.coupe) {
   fill: #fce57e;
