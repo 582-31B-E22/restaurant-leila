@@ -1,70 +1,111 @@
 <?php
 class AccesBd 
 {
-    // Propriétés de la classe
-    private $pdo = null; // Connexion PDO
-    private $requete = null; // Requête paramétrée PDO
+    private PDO $pdo; // Objet de connexion PDO
+    private PDOStatement $rp; // Objet de requête paramétrée PDO
 
-    // Constructeur (permet de configurer la connexion PDO)
+    /**
+     * Constructeur : initialise l'objet PDO
+     * 
+     */
     function __construct()
     {
-        if(!$this->pdo) {
+        if(!isset($this->pdo)) {
             $options = [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ];
             $this->pdo = new PDO("mysql:host=".BD_HOTE."; dbname=".BD_NOM."; charset=utf8",
                 BD_UTIL, BD_MDP, $options); 
         }
     }
-
-    // Méthodes de la classe (implémentation de toutes les opérations CRUD)
         
     /**
-     * Soumet une requête paramétrée.
+     * Effectue une requête SQL
      *
-     * @param  string $sql Requête SQL
-     * @param  array $params Tableau des paramètres utilisés dans la requête SQL
+     * @param string $reqSql Requête SQL paramétrée
+     * @param array $params Tableau contenant les valeurs des paramètres à 
+     *              passer à la requête au moment de son exécution
      * @return void
      */
-    private function soumettre($sql, $params) 
+    private function soumettre(string $req, array $params) : void 
     {
-        $this->requete = $this->pdo->prepare($sql);
-        $this->requete->execute($params);
+        $this->rp = $this->pdo->prepare($req);
+        $this->rp->execute($params);
     }
 
-        
     /**
-     * Obtenir un jeu d'enregistrement de la BD
+     * Effectue une requête SELECT et retourne un jeu d'enregistrements
      *
-     * @param  string $sql Requête SQL
-     * @param  array $params Paramètres à passer à la requête paramétrées PDO
-     * @param  boolean $groupe true si on veut groupé le jeu d'enregistrements 
-     *                 dans le tableau PHP retourné ; défaut = true. 
-     * @return array Tableau contenant les enregistrements
+     * @param string $req Requête SQL de type SELECT
+     * @param array $params Tableau contenant les valeurs des paramètres à 
+     *              passer à la requête au moment de son exécution
+     * 
+     * @return object[] Tableau d'objets représentants les enregistrements
      */
-    protected function lire($sql, $groupe=true, $params = [])
+    protected function lireTout(string $req, bool $groupe=true, array $params=[]) : array
     {
-        $this->soumettre($sql, $params);
+        $this->soumettre($req, $params);
         if($groupe) {
-            return $this->requete->fetchAll(PDO::FETCH_GROUP);
+            return $this->rp->fetchAll(PDO::FETCH_GROUP);
         }
-        return $this->requete->fetchAll();
+        else {
+            return $this->rp->fetchAll();
+        }
     }
     
-    protected function creer($sql, $params) 
+    /**
+     * Effectue une requête SELECT et retourne un seul enregistrement
+     *
+     * @param string $req Requête SQL de type SELECT
+     * @param array $params Tableau contenant les valeurs des paramètres à 
+     *              passer à la requête au moment de son exécution
+     * 
+     * @return object Objet représentant l'enregistrement retourné
+     */
+    protected function lireUn(string $req, array $params=[]) : object
     {
-        $this->soumettre($sql, $params);
+        $this->soumettre($req, $params);
+        return $this->rp->fetch();
+    }
+
+    /**
+     * Effectue une requête INSERT
+     *
+     * @param string $req Requête SQL de type INSERT
+     * @param array $params Tableau contenant les valeurs des paramètres à 
+     *              passer à la requête au moment de son exécution
+     * @return int Identifiant de l'enregistrement ajouté, ou false
+     */
+    protected function creer(string $req, array $params=[]) : int 
+    {
+        $this->soumettre($req, $params);
         return $this->pdo->lastInsertId();
     }
 
-    protected function modifier($sql, $params)
+    /**
+     * Effectue une requête UPDATE
+     *
+     * @param string $req Requête SQL de type UPDATE
+     * @param array $params Tableau contenant les valeurs des paramètres à 
+     *              passer à la requête au moment de son exécution
+     * @return int Le nombre d'enregistrements modifiés
+     */
+    protected function modifier(string $req, array $params=[]) : int
     {
-        $this->soumettre($sql, $params);
-        return $this->requete->rowCount();
+        $this->soumettre($req, $params);
+        return $this->rp->rowCount();
     }
 
-    protected function supprimer()
+    /**
+     * Effectue une requête DELETE
+     *
+     * @param string $req Requête SQL de type DELETE
+     * @param array $params Tableau contenant les valeurs des paramètres à 
+     *              passer à la requête au moment de son exécution
+     * @return int Le nombre d'enregistrements supprimés
+     */
+    protected function supprimer(string $req, array $params=[]) : int
     {
-
+        // Simplement faire appel à la fonction modifier 
+        // (puisque c'est la même implémentation)
+        return $this->modifier($req, $params);
     }
-
-    
 }

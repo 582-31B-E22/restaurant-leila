@@ -10,20 +10,7 @@ class VinModele extends AccesBd {
         // On doit sélectionner la colonne de "groupage" en premier
         $sql = "SELECT cat_nom, vin.* FROM vin JOIN categorie ON vin_cat_id_ce=cat_id 
                 WHERE cat_type='vin' AND vin_provenance LIKE '%Fr%' ORDER BY cat_id";
-        return $this->lire($sql);
+        return $this->lireTout($sql);
     }
 
-    public function ajouter() {
-
-    }
-
-    public function changer() {
-
-    }
-
-    public function retirer() {
-
-    }
-
-    
 }
